@@ -48,16 +48,16 @@ app.get('/weather', (req, res) => {
             error: 'A city must be provided'
         })
     }
-    weather(req.query.city, (error, {weather_descriptions: description, temperature, feelslike} = {}) => {
+    weather(req.query.city, (error, {weather_descriptions: description, temperature, feelslike, humidity} = {}) => {
         if (error) {
             return res.send({error: error})
         }
-
         res.send({
             city: req.query.city,
             description: description[0],
             temperature: temperature,
-            feelslike: feelslike
+            feelslike: feelslike,
+            humidity: humidity
         })
     })
     

@@ -4,7 +4,7 @@ const weatherFrom = document.querySelector('form')
 const search = document.querySelector('input')
 
 const weather = document.querySelector('#weather')
-const weatherSuccess = document.querySelector('#weather-success')
+const cityinfo = document.querySelector('#cityinfo')
 
 
 
@@ -16,7 +16,9 @@ weatherFrom.addEventListener('submit', (e) => {
             if (data.error) {
                 weather.textContent = data.error
             } else {
-                weather.textContent = `It's ${data.description} in ${data.city} with a temperature of ${data.temperature} degrees, feels like ${data.feelslike} degrees outside`
+                cityinfo.textContent = `It's ${data.description} in ${data.city}.`
+                weather.textContent = `Temperatures of ${data.temperature} degrees, feeling like ${data.feelslike} degrees outside.`
+                humidity.textContent = `With ${data.humidity}% humidity`
             }
         })
     })
