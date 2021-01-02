@@ -11,7 +11,7 @@ const weatherSuccess = document.querySelector('#weather-success')
 weatherFrom.addEventListener('submit', (e) => {
     e.preventDefault()
     weather.textContent = 'Loading...'
-    fetch('http://localhost:3000/weather?city=' + search.value).then((response) => {
+    fetch('/weather?city=' + search.value).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 weather.textContent = data.error
